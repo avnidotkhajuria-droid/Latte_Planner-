@@ -1,0 +1,30 @@
+{
+  "date": "2026-09-28",
+  "updatedAt": "2026-09-28T15:20:00+05:30",
+  "sections": [
+    { "title": "India", "items": [
+      { "headline": "Asian Games Day 9: Sarvesh, Ancy, Anahat and Abhay win silver; Tejaswin, Parul and Harita add bronze", "summary": "India won seven medals in Aichi-Nagoya on Sunday, with silvers in high jump, long jump and squash singles and three bronzes in athletics.", "source": "Outlook India", "url": "https://www.outlookindia.com/sports/others/asian-games-2026-live-updates-september-27-commentary-highlights-indians-in-action-aichi-nagoya" },
+      { "headline": "Asian Games: India's cricket team starts its campaign today, with javelin gold on offer", "summary": "Monday's schedule for Indian athletes at the Asian Games.", "source": "Olympics.com", "url": "https://www.olympics.com/en/news/asian-games-2026-india-schedule-today-september-28-monday" },
+      { "headline": "Three-day bank strike called off at the last minute", "summary": "The strike planned for September 28–30 was called off after the Indian Banks' Association and bank unions agreed to discuss five-day banking.", "source": "Moneylife", "url": "https://www.moneylife.in/article/bank-strike-called-off-at-last-minute-as-ufbu-and-iba-agree-to-discuss-5day-banking/81772.html" }
+    ]},
+    { "title": "Himachal", "items": [
+      { "headline": "Rain likely across Himachal from September 26 to 29 as the monsoon stays 13% below normal", "summary": "IMD expects more rain across the state this week, so carry an umbrella around campus.", "source": "LatestLY / IMD", "url": "https://www.latestly.com/agency-news/india-news-himachal-pradesh-to-receive-rainfall-from-september-26-29-as-monsoon-remains-13-below-normal-imd-7619404.html" },
+      { "headline": "Heavy rain and thunderstorms forecast, with an orange alert for September 27", "summary": "The weather department forecast winds of 30–50 kmph and heavy to very heavy rain over the weekend.", "source": "The News Himachal", "url": "https://thenewshimachal.com/2026/09/himachal-weather-update-heavy-rain-likely-on-sept-26-27/" }
+    ]},
+    { "title": "World", "items": [
+      { "headline": "Serbia's president resigns to run for prime minister in a snap vote", "summary": "One of the top stories in Monday morning's European news bulletin.", "source": "Euronews", "url": "https://www.euronews.com/video/2026/09/28/latest-news-bulletin-september-28th-2026-morning" },
+      { "headline": "Russian drone attacks kill 14 and hit infrastructure in Kyiv and Odesa", "summary": "Ukraine reported deaths and damage to infrastructure in both cities.", "source": "Euronews", "url": "https://www.euronews.com/video/2026/09/28/latest-news-bulletin-september-28th-2026-morning" },
+      { "headline": "Japan named the world's top country for tourism and travel in 2026", "summary": "Six European countries also made the top 10.", "source": "Euronews", "url": "https://www.euronews.com/video/2026/09/28/latest-news-bulletin-september-28th-2026-morning" }
+    ]},
+    { "title": "Tech & AI", "items": [
+      { "headline": "Goldman Sachs expects Big Tech to spend $1.2 trillion on AI infrastructure by 2027", "summary": "The forecast is well above what Wall Street analysts had been expecting.", "source": "The Decoder", "url": "https://the-decoder.com/goldman-sachs-expects-big-tech-to-spend-1-2-trillion-on-ai-infrastructure-by-2027-dwarfing-wall-street-estimates/" },
+      { "headline": "Red Queen Bio raises $36M to design antibody drugs with AI", "summary": "The OpenAI-backed startup combines AI with lab automation to prepare defences against future pathogens.", "source": "The Wall Street Journal", "url": "https://www.wsj.com/health/this-startup-is-using-ai-to-fight-off-a-future-ai-pandemic-aceedf1b" },
+      { "headline": "NaiveAI releases a 309-billion-parameter open-weight model", "summary": "The Beijing startup's mixture-of-experts model supports a one-million-token context.", "source": "Hugging Face", "url": "https://huggingface.co/NaiveAI/Naive-N0.5-Flash" }
+    ]},
+    { "title": "Science", "items": [
+      { "headline": "The secret to growing food on Mars could be fungi", "summary": "Researchers say root fungi could help turn poor lunar and Martian soil into ground that can grow crops.", "source": "ScienceDaily", "url": "https://www.sciencedaily.com/releases/2026/09/260924020400.htm" },
+      { "headline": "Gene editing cuts 'bad' cholesterol in half", "summary": "A CRISPR-based approach sharply lowered harmful cholesterol levels.", "source": "ScienceDaily", "url": "https://www.sciencedaily.com/releases/2026/09/260925005434.htm" },
+      { "headline": "Study links glucosamine supplements to faster decline in Alzheimer's patients", "summary": "Researchers report a connection between the common supplement and faster cognitive decline.", "source": "ScienceDaily", "url": "https://www.sciencedaily.com/releases/2026/09/260927033754.htm" }
+    ]}
+  ]
+}
