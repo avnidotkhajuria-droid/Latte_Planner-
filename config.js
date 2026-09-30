@@ -14,5 +14,5 @@ window.LATTE_CONFIG = {
     appId: "1:219246120210:web:51905ee23fb59f50bc37cb",
   },
   // 2) Spotify → developer.spotify.com/dashboard → your app → Settings → Client ID
-  spotifyClientId: "",
+  spotifyClientId: "b095d307d5c745f8b03958b7f1d62c70",
 };
