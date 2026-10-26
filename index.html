@@ -7,9 +7,9 @@
 <meta name="description" content="A cozy planner for college life">
 <meta name="theme-color" content="#FAF5EE">
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="icons/logo.svg" type="image/svg+xml">
-<link rel="icon" href="icons/favicon-64.png" sizes="64x64">
-<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="icon" href="icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="icon-192.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="LattePlanner">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -980,6 +980,18 @@ html[data-vibe="clean"] .banner{background:linear-gradient(120deg,color-mix(in s
 .login-card{width:min(420px,100%);background:var(--paper);border-radius:32px;box-shadow:var(--shadow-lift);padding:32px 26px;display:flex;flex-direction:column;gap:16px}
 .img-ph{width:100%;aspect-ratio:4/3;background:var(--latte-2);border-radius:6px}
 img.res-tile{object-fit:cover}
+
+/* Readable navigation and helpful first-use states. */
+:focus-visible{outline:3px solid var(--coffee);outline-offset:4px}
+.setup-prompt{padding:20px 0;text-align:left}.setup-prompt p{color:var(--muted);margin:8px 0 16px;max-width:48ch}
+.budget-editor{margin-bottom:24px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+.budget-editor label{display:block;font-weight:700;margin-bottom:8px}.budget-controls{display:flex;gap:10px}.budget-controls input{min-width:0;width:100%}.budget-controls button{flex-shrink:0}
+.news-freshness{font-size:13px;color:var(--muted);margin:0 0 14px}
+.more-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.more-grid button{display:flex;align-items:center;gap:12px;padding:16px;text-align:left;border:1px solid var(--line);border-radius:16px;color:var(--coffee);min-height:54px}.more-grid button:hover,.more-grid button.on{background:var(--pink-2)}
+.more-navigation{max-height:80dvh;overflow-y:auto}.w-foot{flex-wrap:wrap;gap:10px}
+@media(max-width:900px){.mobile-nav.compact-nav{overflow:visible;display:flex;justify-content:space-around;gap:4px}.mobile-nav.compact-nav button{flex:1;width:auto;height:54px;display:flex;flex-direction:column;justify-content:center;gap:4px;font-size:11px;font-weight:700}.mobile-nav.compact-nav button>span:first-child:not(:last-child){font-size:20px;line-height:20px}.budget-editor{grid-template-columns:1fr}.ai-fab{bottom:90px}}
+@media(max-width:420px){.budget-controls{flex-wrap:wrap}.budget-controls button{width:100%}.more-grid{grid-template-columns:1fr 1fr}.more-grid button{padding:12px;font-size:13px}}
+
 </style>
 </head>
 <body>

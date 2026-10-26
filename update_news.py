@@ -13,7 +13,7 @@ FEEDS = [
     ("Science", f"https://news.google.com/rss/headlines/section/topic/SCIENCE?{Q}"),
 ]
 PER_SECTION = 4
-OUT = os.path.join(os.path.dirname(__file__), "..", "news.json")
+OUT = os.path.join(os.path.dirname(__file__), "news.json")
 
 
 def fetch(url):
