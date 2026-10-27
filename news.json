@@ -1,30 +1,151 @@
 {
-  "date": "2026-09-28",
-  "updatedAt": "2026-09-28T15:20:00+05:30",
-  "sections": [
-    { "title": "India", "items": [
-      { "headline": "Asian Games Day 9: Sarvesh, Ancy, Anahat and Abhay win silver; Tejaswin, Parul and Harita add bronze", "summary": "India won seven medals in Aichi-Nagoya on Sunday, with silvers in high jump, long jump and squash singles and three bronzes in athletics.", "source": "Outlook India", "url": "https://www.outlookindia.com/sports/others/asian-games-2026-live-updates-september-27-commentary-highlights-indians-in-action-aichi-nagoya" },
-      { "headline": "Asian Games: India's cricket team starts its campaign today, with javelin gold on offer", "summary": "Monday's schedule for Indian athletes at the Asian Games.", "source": "Olympics.com", "url": "https://www.olympics.com/en/news/asian-games-2026-india-schedule-today-september-28-monday" },
-      { "headline": "Three-day bank strike called off at the last minute", "summary": "The strike planned for September 28–30 was called off after the Indian Banks' Association and bank unions agreed to discuss five-day banking.", "source": "Moneylife", "url": "https://www.moneylife.in/article/bank-strike-called-off-at-last-minute-as-ufbu-and-iba-agree-to-discuss-5day-banking/81772.html" }
-    ]},
-    { "title": "Himachal", "items": [
-      { "headline": "Rain likely across Himachal from September 26 to 29 as the monsoon stays 13% below normal", "summary": "IMD expects more rain across the state this week, so carry an umbrella around campus.", "source": "LatestLY / IMD", "url": "https://www.latestly.com/agency-news/india-news-himachal-pradesh-to-receive-rainfall-from-september-26-29-as-monsoon-remains-13-below-normal-imd-7619404.html" },
-      { "headline": "Heavy rain and thunderstorms forecast, with an orange alert for September 27", "summary": "The weather department forecast winds of 30–50 kmph and heavy to very heavy rain over the weekend.", "source": "The News Himachal", "url": "https://thenewshimachal.com/2026/09/himachal-weather-update-heavy-rain-likely-on-sept-26-27/" }
-    ]},
-    { "title": "World", "items": [
-      { "headline": "Serbia's president resigns to run for prime minister in a snap vote", "summary": "One of the top stories in Monday morning's European news bulletin.", "source": "Euronews", "url": "https://www.euronews.com/video/2026/09/28/latest-news-bulletin-september-28th-2026-morning" },
-      { "headline": "Russian drone attacks kill 14 and hit infrastructure in Kyiv and Odesa", "summary": "Ukraine reported deaths and damage to infrastructure in both cities.", "source": "Euronews", "url": "https://www.euronews.com/video/2026/09/28/latest-news-bulletin-september-28th-2026-morning" },
-      { "headline": "Japan named the world's top country for tourism and travel in 2026", "summary": "Six European countries also made the top 10.", "source": "Euronews", "url": "https://www.euronews.com/video/2026/09/28/latest-news-bulletin-september-28th-2026-morning" }
-    ]},
-    { "title": "Tech & AI", "items": [
-      { "headline": "Goldman Sachs expects Big Tech to spend $1.2 trillion on AI infrastructure by 2027", "summary": "The forecast is well above what Wall Street analysts had been expecting.", "source": "The Decoder", "url": "https://the-decoder.com/goldman-sachs-expects-big-tech-to-spend-1-2-trillion-on-ai-infrastructure-by-2027-dwarfing-wall-street-estimates/" },
-      { "headline": "Red Queen Bio raises $36M to design antibody drugs with AI", "summary": "The OpenAI-backed startup combines AI with lab automation to prepare defences against future pathogens.", "source": "The Wall Street Journal", "url": "https://www.wsj.com/health/this-startup-is-using-ai-to-fight-off-a-future-ai-pandemic-aceedf1b" },
-      { "headline": "NaiveAI releases a 309-billion-parameter open-weight model", "summary": "The Beijing startup's mixture-of-experts model supports a one-million-token context.", "source": "Hugging Face", "url": "https://huggingface.co/NaiveAI/Naive-N0.5-Flash" }
-    ]},
-    { "title": "Science", "items": [
-      { "headline": "The secret to growing food on Mars could be fungi", "summary": "Researchers say root fungi could help turn poor lunar and Martian soil into ground that can grow crops.", "source": "ScienceDaily", "url": "https://www.sciencedaily.com/releases/2026/09/260924020400.htm" },
-      { "headline": "Gene editing cuts 'bad' cholesterol in half", "summary": "A CRISPR-based approach sharply lowered harmful cholesterol levels.", "source": "ScienceDaily", "url": "https://www.sciencedaily.com/releases/2026/09/260925005434.htm" },
-      { "headline": "Study links glucosamine supplements to faster decline in Alzheimer's patients", "summary": "Researchers report a connection between the common supplement and faster cognitive decline.", "source": "ScienceDaily", "url": "https://www.sciencedaily.com/releases/2026/09/260927033754.htm" }
-    ]}
-  ]
+ "date": "2026-10-27",
+ "updatedAt": "2026-10-27T11:42:19+05:30",
+ "sections": [
+  {
+   "title": "India",
+   "items": [
+    {
+     "headline": "Cyclone ‘Arnab’ LIVE updates | ‘Arnab’ hurtling towards Andhra; Kakinada in the grip of fear",
+     "summary": "",
+     "source": "The Hindu",
+     "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNM2N1X0RrTGVpR0FZYzZlWjFkcll2akFWak1vclMxTWF3c0dzYWlKdVpTT1ZqQld1U2RkWF8xcW9VVEFxQzM2NGxyZkUydkd3RmJyT2xpTjFIUHctYklHdE4yTkxfU3J0aXNQd0ZsN0l0TTQ1TlBoUm5CS0MzMGNpVVJ3TTBETTZ3bFVTOUJrVHM3UHM0RXJBd2xpWmttTVlObk9VeGwxT2V4Zk5GZ2J3WE5TYUx2Q3JFUXRrVkRZbFlwa0xwMnQ4TDlBZnRqR190Q2hKaU14MlBJVmJTQ0RFYVlDWEXSAesBQVVfeXFMTXo4ckowVmx1dVlXNEw3NllIUi1VLUwtSlZOcmZwWC1iWnFMdXFoTVExVUJUWWZseEFRTWt5LWQ2eG1DNFNocFdsaGJ6ZTJicll4bE54V0p3ZFhUTFB6NVRST3l3QVcyR3JIVjI0TEloQUJwU2daQVU5TjVtLVlvaFpQYnpuLXMya3prZWdXVXc0WTB6c2w0RmxQRG1tazA5Um5FOGVkcF9ETXRUb0FHbjdWeVNWbk9Rdzk1amRlbFJ5ZnB5LUFua1hZaGU3aXRUbDVTY3FndVhlOGFSSGxGdnVWb0Vxd1Nac2h5UQ?oc=5"
+    },
+    {
+     "headline": "More violence in Arunachal as anti-dam protests spread",
+     "summary": "",
+     "source": "The Times of India",
+     "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOc3pXa0d1SWp0bU5nXzhFUkwwbVNOVlpKSlNiX1JyR3R1SS1Dc1JaSEE3anpsRUh4VUFYUk5SV2FUWmlCQWNybnhRQUxVQllZRW8yVHpiR2ZPdm1JbUxvWnRhZEpVdURhQ1U1aTIwVURGZnQxc1NFMUtXcndvQ25Fem94M0ljU1FfTUpIbmNTcFZWWS10WlhJeHZibTlQSFdCR0d1SGItVXkyam1DQ3BCb0pDazFqODhUdkdDQUhGMA?oc=5"
+    },
+    {
+     "headline": "'Shouldn't be an instrument of narrow political expediency': India calls for veto powers for all UN Security Council members amid reform push | India News",
+     "summary": "",
+     "source": "Hindustan Times",
+     "url": "https://news.google.com/rss/articles/CBMipwJBVV95cUxNMUdJbGtWQklnVVlFN0NWeDdJZlhpYk56OVF1Sjc5bU1ocGRkRFMzSHhYNzNmUW81Rmdzd3RTRzB1SFNhMGNGaGc2bUlhRkdMT0JBMVpEdUU4WjJJODk2WXczajJoNmluM09WYkt4a3QtR0pjTDN2MGtXZEVYc1JlWTRxR256NndBYnV5MVNMUFNVWkV0YkNobUpna0piaUlQNHN1VWZhUnhabmFfUnVXX2pwNE1hMzhLdHFrSnZibHhKendhQ1gzS2ctNHpEZ29tR1VMbndBTlBVQU12TUVObXFXaHY4SW4xbWY0UWE5dG9yUmtRSm05aGdLY2xnSmstVHJvckU2aFVuZGZpRy1YYnpoUFdaZW9tQmRwQm9ZcV9OaUl3bnlV?oc=5"
+    },
+    {
+     "headline": "Plea Against ECI, CEC Gyanesh Kumar, SIR Decisions : Live Updates From Supreme Court",
+     "summary": "",
+     "source": "Live Law",
+     "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQT1RlWTdCRXZyc1EyeFpLeVVmbzZTZFZyTXRsM0NkT2pEc2RrdF9XeHlKcWpYU2c4ZVd4VW9ZMmJhZzExMFdqa3psSFc0WDFRb3hoTWV2Y0ktV1R1d29aSGd4cTdBaTNwUDdGcTZoUEtVdjdBbXVxQ0ljT0J6YVRhOExiaEMyU2pmV21VMmNxSFk1RUdjNnJpSzdSdmRUR01aUWMwdjQwR3pxZXlKcFdBbGVsckRYVVJiczNpaDR6c9IBxAFBVV95cUxOVVZ6OEV1WjdrVTVuWW5ZbzBCNExVbVMwN1JjUTZoQzdlNFVReUVCeXBTOF9CTU9vUHVaMjZoYmNTclh3T3V5QXZ5YzRkd0w2NGZ2SGJ6aEo1NEFKNHNldzhOWkcwMjBsZnQ1RnBDMmdCNUhVZDdMcW9fb0VGWU5vLVIwRWxtVXdTWUhSU1JoeFdwdzhJRGU2TEJPTUc5WTllWDRCNkR3QWNzeGJwbm54X0hiLWpqNV9pT2xuak5lbWtVdWt1?oc=5"
+    }
+   ]
+  },
+  {
+   "title": "Himachal",
+   "items": [
+    {
+     "headline": "Himachal Pradesh Government",
+     "summary": "",
+     "source": "himachalpr.gov.in",
+     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5pbzBRM1ViMEVRV1dHakdXMEl1b1RpRXJSUzBoeHRHNUp5cVpVQkdnS0ZfWkJEYWcxTkxRQkNJVkFkZHJGNnNBN3RBT09DYUI2emgxMFp5Y1pZcGFnMnVvU200R1RuX1Fp?oc=5"
+    },
+    {
+     "headline": "Himachal Pradesh: ‘Rs 8,555 Cr owed to retirees’: BJP slams Sukhu Govt over unpaid dues; Demand 10% backlog clearance",
+     "summary": "",
+     "source": "Organiser",
+     "url": "https://news.google.com/rss/articles/CBMihwJBVV95cUxPY29CN05mcGQtQV9qNGMtM3FZbnFqb3o0djRBeERQVWxzeDVGWkxEb1hxZ21Mb19MTWpndXlJT0RmTjZNRGo2ZzAzYUdkUDRLcllKYUZ1WkhFejJnclVwVkR6LTFfb2lJeXktdVQ4aUNZb2hYNm12TWpFSDNWdWdIb3pmVW1rb0NMX1JocXVkTFl1VF91MDdfZW1XYXk2Q1dqWXYxNk1fNW9xeWdETzdpRFkzQ2xpMGNDSnFSN3JHSEhyTnVhTUExdGpid3Y5VTR2Mkh5RTZ4SUxxUEt1dlFHamhPSTZPY1dxaWlBNTRvVGJqWE8teC1SM3g5ZDV4RGpWWTlTcFVzTdIBjAJBVV95cUxNdFg5Y0lRa3o3T3U1Q1FWdFFYNmN0M3RBR2hUQUVndjhmbmIwYkdnSEQxUjFMcVo3UUNGd25mbDBONERJck5tSExOVVROTEJ0cDA4Y1lGaTZrV184N0oxbDZHZUgzQTlvVDhhNHVUNkVoWU9KeHlxYXotMzBjTEhjeDBPQ1JuOVdkQzkwVVFaTkhGMzZGcTZZbDVsdUg2dVVMQ0lrYUwtdTBfRUZPb2Y3N2d1UktRVVlpc1V1aE11cHFNUHBYQTZGZFBCeHozNlRYa1pjekEzN2RJTTB6U2xZV2QtTHRlbTFxVjU2YUZqRU9iMjBXaDJhOV9LSTNMWXVDbXd1SF9uZW9qZlFR?oc=5"
+    },
+    {
+     "headline": "Winter arrives early in North India, temperature dips below 10°C in Himachal Pradesh",
+     "summary": "",
+     "source": "India Today",
+     "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNUzlxc3EyTHo4VG9wa0FTdHhFTlBkZWZQLVpIR3FIa1lMZGM0bmVZNUZQdG5vWEVpU29EOHg4Sk92eGZhWEJlZGhfSWdHbzVmWUFFVVc3WmN4NUd4ek5JQm5RQTd1Z0NScEZibEdfX2RLMDZzMXI3LTRIU2dsOTNmLWZyVnBVSWtZQnI5WkZ3dWwwQjVqWW0yZE9sdWxteDk0a25XaExNcEs2V3Ezb1dhNER0YjlILTU5cl9iZ21QbnRvTDdUVTh4QmpR0gHKAUFVX3lxTE1TOXFzcTJMejhUb3BrQVN0eEVOUGRlZlAtWkhHcUhrWUxkYzRuZVk1RlB0bm9YRWlTb0Q4eDhKT3Z4ZmFYQmVkaF9JZ0dvNWZZQUVVVzdaY3g1R3h6TklCblFBN3VnQ1JwRmJsR19fZEswNnMxcjctNEhTZ2w5M2YtZnJWcFVJa1lCcjlaRnd1bDBCNWpZbTJkT2x1bG14OTRrbldoTE1wSzZXcTNvV2E0RHRiOUgtNTlyX2JnbVBudG9MN1RVOHhCalE?oc=5"
+    },
+    {
+     "headline": "Himachal Pradesh Faces Longer Dry Spells",
+     "summary": "",
+     "source": "jeevanutsahnews.in",
+     "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPeFBWN1ktV010MWVsd2hTdW9ySUF5a2lkbUVuWkFUN3M5bEh5a1ZsYjVZb3daSjQ0XzlqQV8xcDdQd05hNXZRRVIwTHRuZjhMQTZFSzlIV0RhQVJQd1VLc0FnZ19XdENORk9MQ1pOSVJwX2hjVUdQVjVpdV81ZnVCVlJqSkFZV3piNi1KOUNR?oc=5"
+    }
+   ]
+  },
+  {
+   "title": "World",
+   "items": [
+    {
+     "headline": "Bolsonaro’s party accepts Brazil election after Trump calls vote ‘rigged’",
+     "summary": "",
+     "source": "Al Jazeera",
+     "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNWUVNbEtHLU15dDQtaHFWbEhkVlp4M0w3elVTS3JIeF85UEhLLTBmSllnMDdIRTBLTHdrNV9vdFJZTFJkY2lPbDBKaUJsMDBnR3B1STRVRnEyUjVNeUE3cmo1bEhDbFJOTVljU3l5Y0Q4Y01jOHhFbHFMZFU5emw2VFU2OTBxRkJZTnczaER5eTRDT3VRUmtYajg5eFMybW42ek5mTk9R0gGrAUFVX3lxTE15N2otYXFLSUFBY2xCSXp4S0xKUUpIOFJDRVBySUhCaDZ5WXpXRVdWdEFaUnpXZlhNY25BNEo3Rk9LNzlZeEdVZkN2ZU1VYjhDTjU1OEpmMXNzN3ZjazVCLU5hNDF6eHZDbFpSaW5MSnJEWGhfLThlWHdlV2VIcDN5UEZXTUJPMXFhMnpZanYyaXhvUjJhcWhwaVAybUNOWFRsVlA3NFdRYW9Dbw?oc=5"
+    },
+    {
+     "headline": "‘People have won’: Serbia’s Vucic concedes defeat to student-led oppn in major political shift",
+     "summary": "",
+     "source": "The Times of India",
+     "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxPSXFxVWhrbW9jRUd2dTJCNG8tRVMxQ3hwYmNpbXdXRTRRWGF1azZkd1A1eGNLS3pEQ3FVU2hfTzRNSHlqZFB6UlUtR0VaejRrS0JGOUFTRm1xcHVCdk04WmZ0SXVCSC1FdkFMa1RlTkpacXRBbzAyYjhLQlJUVUxpOTlmR2Z3dVV5TzB6alp3S1VKVjdJT2N4eTF2Mm0yR0RiTlRiRVhsTGg2eHJ0WVBTUTlFT0x0ME1zb0tSNmEwYk01MG1qVThNSmFmaEJXMzdFQ0gzeDdkMzhrb3NnMnZxbng4QkE5Yll5eHJwNQ?oc=5"
+    },
+    {
+     "headline": "2 Indian-Origin Men Get 28 Years In Jail After Deadly Car Race On UK Street",
+     "summary": "",
+     "source": "NDTV",
+     "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPM2pvcUpzcy1TejhiT1drMzBNUWlvQkxSZHd5N0xFSFNpMDQydFFQdHlqbUdzWGtjQi1GS2dETU1SZy1vd25PUndlRVBxekgzS1pTUHVXcDd3OXRxcDNaNnVjSjFMZlk0bVJYa3dSYjhTMWlqMmZEMW5MS3lrTkVSY216TG1WbXBVUTRhbGltTldsVjJZdkRwSkZuUVpud2FkN0d2YnpzUENPczJfbWJ6SUYzMHFneXZ1c2hWekphcUVQMXFEYmlmYjQzTFB6S2dxeXdxOE5xSmFWRkkteWxOeA?oc=5"
+    },
+    {
+     "headline": "Tarique Rahman’s Japan visit: Japan’s bet on Bangladesh is really about the Bay of Bengal",
+     "summary": "",
+     "source": "The Daily Star",
+     "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNUWgwSmxRdlF6QW1weGJyZEl5TnRPcE5QenZQRFlBOVZ2bE5oanJzcDQyY3ZRaTBzQ19qdk9mVTVXcWxQMDRPeGtBOU93ZGZ3cGFrUWRHVTJxejVraHluMDdwZldhUDUzTmlvb3A2dG9QQ2tUMEFWUnZQRjFteUExM3VBekNiTmZfMzRuVU1acW9uTWVxVFZTNUxYbkJfbDd1aU55cVo0Yi1RTkJDYlVvM2IweDBoUWQ2Y0pPTmxFOGZJQktyM3Z0c1V1MTl0ek9kTzl6ekxlSktTckZERnp0ZUZsX1BpVW8?oc=5"
+    }
+   ]
+  },
+  {
+   "title": "Tech & AI",
+   "items": [
+    {
+     "headline": "Apple announces iPad Mini update and hopes are high for touchscreen MacBook",
+     "summary": "",
+     "source": "The National",
+     "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOcjJQdWRoaWF0dlpZNWlUdTQ0aUxITFEzNEUzeXVGLVVxTng1UldpVjM5Ukw3dVpra2lKcDI2VnhoS3hWVGU5aDRock5fMGJCSTlaU3dEa2lNRVlTdl84SkhUYWljbkhHdlFDLUpJckszdk8weGZqRXJGbXpwU2RVS1h2eWRDY2lZS3BMcm5VOHBmUjg?oc=5"
+    },
+    {
+     "headline": "Samsung Galaxy Z Fold 8 vs iPhone Duo: Foldable Phone Showdown",
+     "summary": "",
+     "source": "RS Web Solutions",
+     "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxONW1sZ0hnUlFpdVRtOFRPd0lfR3A3MWY1QjF5dnB4ZmJkUVdMLUR1My01UGJXSjlyZU1OMEo0ekxhV3NDdEJGUkgxS1N6czhsNjZXc0o1YkprNE1vU0owalZ1YVZYT25JZmdqTUxLWWkwQVp4MXIzNWpYMnVrM1o4aVVWYTdqQlFTN0NOTmp2N2VhTXJieGE3VWFyN1RPRmNVTnR5LUNPMUdpQnpSX1RrN1cyWllVUQ?oc=5"
+    },
+    {
+     "headline": "iFixit teardown reveals possible cause of iPhone Duo screen cracks, gives it 5/10 repairability score",
+     "summary": "",
+     "source": "The American Bazaar",
+     "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxPWWFMSWE4M21Ka001U09LSjZ1c19JRE9uNko0bU9ZR0lVR0hKa3hGbkFaVG5NMWFsSHlHcUxmbmNuRWJRY25Candodlc0VEptSjZVU1JOWkxVek1KTHgtRVZLalR6MDRzYlU0dmF5aXZfNHd2TWJpR28xMVRpcWF3amJGSTVIMUlwVGU5b005UDNfT0lvNzhRczZRR1B5cFVvVF9xTXZpZFpIc0JNN2l6YU5Pb3EyWnpMaWNzV043VThjUUZrZFR3V2dFZlpwWm80WkJrSkxjeC1BMFBUdkZ6V21nTUxUVWc?oc=5"
+    },
+    {
+     "headline": "Today’s NYT Strands Hints, Spangram and Answers for Tuesday, Oct. 27, #968",
+     "summary": "",
+     "source": "CNET",
+     "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQU3Fpd1BMR0tCWG9ubWU5WTlza3g1Y2tpQ2ZDaXhlYjZyTWlLR3AyTkxmNHFNWThzYWdOODJDWHRkQmtVeGRnaVJZeXUxN3l3QXlkY2daMGNNX0c3MGJOTGZidG1YX29uaE5zRGZLc3lUZmdPSnU5clhvRDVDaWhYQjMzeFgwcXZsdnZpeWJBbXYwejJSQU9uQllQbFcwWWVvc1dHcQ?oc=5"
+    }
+   ]
+  },
+  {
+   "title": "Science",
+   "items": [
+    {
+     "headline": "NASA's Swift Space Telescope Wraps Up Its Historic Mission",
+     "summary": "",
+     "source": "NDTV",
+     "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNU1NYQ3M1RzN0MnlzQTQycWROc2lqeXdZZkdvUDVRR0ZDVlNMZnJUaUZqY3g4MUhKUDZLdzdtcUNYblFTcnhIOXJuRlRpVWg5dU1YV2Z0N0dlTVA1UnQzRDdTblNGNFo4cVNQNVRTYmxZWDE5SE00UWRfY2JTbElHa1QxVk9odm1rWWVPbFZUbTlTb0k3NXBxVDY1QjVJbzhDYnp4OXdKeXVkLVHSAbMBQVVfeXFMTVpwY3ppUFRwb011cjU3UXRlanBNNkQ4NURxcFpHSWhwYS1YNnJsSnJlUnA4b3lKQkNia1pTdzNhVWxNcTNMeE5yNXRlMS1QYmttaVQ4XzAwTVk0N19RRGdnel9LMUdWNEQ0endrOUVlLU9odGs0SGk4dlRwcnFqQjdnTTAzdGREUlp4UVJtNmk5V19uQU9EdTBPU2R2dzNOZEZHYlhhY1AwOHRvdHNYRC1WcVE?oc=5"
+    },
+    {
+     "headline": "Gaze at the Cosmic Dawn in Dizzying Detail",
+     "summary": "",
+     "source": "The New York Times",
+     "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQdjEwdUozemRHR3BDalNObjE5c0otTllFdFYySmQzRW45alpHVVhXa2ZYSEJRWk5LVThwN1JtcW56VUxBVWo3WTBHWDhYTU9LQ0pDck1hMU40QkxRRHRfUmxaeE9nSHlTX2lacjZXMHg0dDdlLWx4U1JwMnV6R1ZwbUFNTC1PelBoRk5wLUtsQQ?oc=5"
+    },
+    {
+     "headline": "Rare new species of barklice insect discovered from the Nilgiri Mountains",
+     "summary": "",
+     "source": "Research Matters",
+     "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPc2RWc24wd2UycUVIRjlaNkxNWkUwZEZkLUc0c0IxQWVDNXFkTUpnSmk2T1VERnhISUc2Vll6dHdiU09FdGxWcnNtVThyZXhlQWdrOVBjX3phaGlxYWZJdnZ3RGxuMnFJeFYyNmZtcE5XUXpycDFnZkRjLVNCbWtyU09lTm9NRFpmYmg5eENIS21ObDl3RFlKRDN4VVF1T2t2MUU3OUtUTWE?oc=5"
+    },
+    {
+     "headline": "Lawrence Kazak awarded NSERC’s Arthur B. McDonald Fellowship",
+     "summary": "",
+     "source": "McGill Reporter",
+     "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9tWjQ1ZTVqMEY5ZFJHU2FPbTV1RXVkc1VCdTZ6YlRjOUFuVmFCMHVMT0FOMXdwQzk0alAyNmxBd0pFQ0l6MGxGMVh0VU1GM2daRi1iTF90WHI1MG52UXV3XzczTl9DaHYtaU1QeHRWOWNoeFdaaEZmcXN3UQ?oc=5"
+    }
+   ]
+  }
+ ]
 }
