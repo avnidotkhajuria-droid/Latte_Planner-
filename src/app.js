@@ -4166,6 +4166,7 @@ function Dashboard() {
       ),
       React.createElement(Glance, null),
     ),
+    React.createElement(ScheduleManager, { compact: true }),
     React.createElement(SetupBanner, null),
     React.createElement(
       Masonry,
@@ -4327,7 +4328,13 @@ function Timeline() {
     c = new Date().getDay(),
     l = new Date().getHours() * 60 + new Date().getMinutes(),
     r = [
-      ...slotsFor(c),
+      ...slotsFor(c).filter(
+        (slot) =>
+          !slot.course ||
+          !plannerPlans(a, PLANS).find(
+            (plan) => plan.id === planForDate(a, p, h),
+          )?.pauseClasses,
+      ),
       ...o
         .filter((n) => n.date === h && n.time)
         .map((n) => ({
@@ -4341,7 +4348,8 @@ function Timeline() {
       ...i
         .filter(
           (n) =>
-            n.days && n.days.includes(c) && stepInPlan(n, p[h] || "normal"),
+            (!n.days || n.days.includes(c)) &&
+            stepInPlan(n, planForDate(a, p, h)),
         )
         .map((n) => ({
           id: "r-" + n.id,
@@ -4410,14 +4418,17 @@ function Timeline() {
       React.createElement(
         "div",
         { className: "empty" },
-        Object.values(TIMETABLE).some((day) => day.length)
-          ? "No classes today. Rest is productive too \u2661"
-          : React.createElement(SetupPrompt, {
-              title: "Your timetable starts here",
-              description:
-                "Add your subjects and class times to see your day at a glance.",
-              action: "Add timetable",
-            }),
+        plannerPlans(a, PLANS).find((plan) => plan.id === planForDate(a, p, h))
+          ?.pauseClasses
+          ? "Classes are paused for this schedule. Add activities from Routines whenever you like."
+          : Object.values(TIMETABLE).some((day) => day.length)
+            ? "No classes today. Rest is productive too \u2661"
+            : React.createElement(SetupPrompt, {
+                title: "Your timetable starts here",
+                description:
+                  "Add your subjects and class times to see your day at a glance.",
+                action: "Add timetable",
+              }),
       ),
     React.createElement(
       "div",
@@ -5886,6 +5897,8 @@ function Swipe({ on: e, onToggle: t, label: s }) {
   );
 }
 function RoutinesPage() {
+  const scheduleProfile = useStore().profile;
+  const availablePlans = plannerPlans(scheduleProfile, PLANS);
   const {
       routineDone: e,
       setRoutineDone: t,
@@ -5898,8 +5911,8 @@ function RoutinesPage() {
     l = todayISO(),
     r = new Date().getDay(),
     b = e[l] || {},
-    y = o[l] || "normal",
-    u = PLANS.find((f) => f.id === y) || PLANS[0],
+    y = planForDate(scheduleProfile, o, l),
+    u = availablePlans.find((f) => f.id === y) || availablePlans[0],
     m = s.filter((f) => stepInPlan(f, y)),
     n = EXAMS.some((f) => f.date === l && !/lab|viva/i.test(f.kind || "")),
     d = (f) => !f.days || f.days.includes(r),
@@ -5969,7 +5982,7 @@ function RoutinesPage() {
       React.createElement(
         "div",
         { className: "mood-pick" },
-        PLANS.map((f) =>
+        availablePlans.map((f) =>
           React.createElement(
             "button",
             {
@@ -5992,10 +6005,13 @@ function RoutinesPage() {
             ? "Calm, early and focused: revision in the morning, rest after the paper, next subject in the evening."
             : y === "holiday"
               ? "A slower day: sleep in a little, catch up on laundry and study, leave time for yourself."
-              : "For assignment nights: a short nap, two focused work blocks and a later bedtime. Tomorrow goes back to normal.",
-        " Choosing a plan only changes today.",
+              : y === "late"
+                ? "A gentler rhythm for late-night work."
+                : "Your own schedule, shaped around your day.",
+        " Choosing a plan only changes today. Use Schedule studio below to plan a longer period.",
       ),
     ),
+    React.createElement(ScheduleManager, null),
     React.createElement(
       "section",
       { className: "card" },
@@ -6301,6 +6317,7 @@ function RoutinesPage() {
   );
 }
 function StepModal({ step: e, onClose: t, plan: s = "normal" }) {
+  const availablePlans = plannerPlans(useStore().profile, PLANS);
   const { steps: o, setSteps: a, notify: i } = useStore(),
     p = !!e.new,
     [h, c] = useState(() =>
@@ -6405,7 +6422,7 @@ function StepModal({ step: e, onClose: t, plan: s = "normal" }) {
             value: h.plan || "normal",
             onChange: (m) => b("plan", m.target.value),
           },
-          PLANS.map((m) =>
+          availablePlans.map((m) =>
             React.createElement(
               "option",
               { key: m.id, value: m.id },
@@ -6688,7 +6705,7 @@ function ProfilePage() {
         H = p.filter(
           (X) =>
             (!X.days || X.days.includes(z)) &&
-            stepInPlan(X, e.routinePlan[x] || "normal"),
+            stepInPlan(X, planForDate(e.profile, e.routinePlan, x)),
         ),
         K = h[x];
       return K
@@ -8809,20 +8826,18 @@ async function spMyPlaylists() {
         ((t = "/me/playlists?limit=10"), (o = await SP.api(t)));
       else throw a;
     }
-    ((o.items || [])
-      .filter(Boolean)
-      .forEach((a) =>
-        e.push({
-          id: a.id,
-          uri: a.uri,
-          name: a.name,
-          img:
-            a.images && a.images.length
-              ? (a.images[a.images.length - 1] || a.images[0]).url
-              : "",
-          n: a.tracks ? a.tracks.total : a.items ? a.items.total : null,
-        }),
-      ),
+    ((o.items || []).filter(Boolean).forEach((a) =>
+      e.push({
+        id: a.id,
+        uri: a.uri,
+        name: a.name,
+        img:
+          a.images && a.images.length
+            ? (a.images[a.images.length - 1] || a.images[0]).url
+            : "",
+        n: a.tracks ? a.tracks.total : a.items ? a.items.total : null,
+      }),
+    ),
       (t = o.next ? o.next.replace("https://api.spotify.com/v1", "") : null));
   }
   return e;
@@ -9702,16 +9717,14 @@ function MiniWrapped() {
         SP.api(`/me/top/artists?time_range=${s}&limit=10`),
       ])
         .then(([u, m]) => {
-          const n = ((m && m.items) || [])
-              .filter(Boolean)
-              .map((w) => ({
-                name: w.name,
-                img:
-                  w.images && w.images.length
-                    ? (w.images[1] || w.images[0]).url
-                    : "",
-                genres: w.genres || [],
-              })),
+          const n = ((m && m.items) || []).filter(Boolean).map((w) => ({
+              name: w.name,
+              img:
+                w.images && w.images.length
+                  ? (w.images[1] || w.images[0]).url
+                  : "",
+              genres: w.genres || [],
+            })),
             d = {};
           (n.forEach((w) =>
             w.genres.forEach((k) => {
@@ -9925,31 +9938,29 @@ function MiniWrapped() {
                   React.createElement(
                     "ol",
                     { className: "wr-list" },
-                    r.tracks
-                      .slice(1, 6)
-                      .map((u, m) =>
+                    r.tracks.slice(1, 6).map((u, m) =>
+                      React.createElement(
+                        "li",
+                        { key: u.id },
                         React.createElement(
-                          "li",
-                          { key: u.id },
-                          React.createElement(
-                            "span",
-                            { className: "num" },
-                            m + 2,
-                          ),
-                          u.img
-                            ? React.createElement("img", {
-                                src: u.img,
-                                alt: "",
-                              })
-                            : React.createElement("i", null),
-                          React.createElement(
-                            "div",
-                            null,
-                            React.createElement("b", null, u.name),
-                            React.createElement("small", null, u.by),
-                          ),
+                          "span",
+                          { className: "num" },
+                          m + 2,
+                        ),
+                        u.img
+                          ? React.createElement("img", {
+                              src: u.img,
+                              alt: "",
+                            })
+                          : React.createElement("i", null),
+                        React.createElement(
+                          "div",
+                          null,
+                          React.createElement("b", null, u.name),
+                          React.createElement("small", null, u.by),
                         ),
                       ),
+                    ),
                   ),
                   React.createElement(
                     "p",
@@ -9959,21 +9970,19 @@ function MiniWrapped() {
                   React.createElement(
                     "div",
                     { className: "wr-artists" },
-                    r.artists
-                      .slice(0, 5)
-                      .map((u) =>
-                        React.createElement(
-                          "div",
-                          { key: u.name },
-                          u.img
-                            ? React.createElement("img", {
-                                src: u.img,
-                                alt: "",
-                              })
-                            : React.createElement("i", null),
-                          React.createElement("small", null, u.name),
-                        ),
+                    r.artists.slice(0, 5).map((u) =>
+                      React.createElement(
+                        "div",
+                        { key: u.name },
+                        u.img
+                          ? React.createElement("img", {
+                              src: u.img,
+                              alt: "",
+                            })
+                          : React.createElement("i", null),
+                        React.createElement("small", null, u.name),
                       ),
+                    ),
                   ),
                   r.genres.length > 0 &&
                     React.createElement(
@@ -10695,66 +10704,64 @@ Reply ONLY with JSON {"pick":[indexes of up to ${Math.max(ve, 15)} songs from th
                 "Made with LattePlanner",
               ),
             ),
-            k
-              .slice(0, 8)
-              .map((g) =>
+            k.slice(0, 8).map((g) =>
+              React.createElement(
+                "div",
+                { key: g.id, className: "song" },
+                g.thumb
+                  ? React.createElement("img", {
+                      className: "res-tile",
+                      src: g.thumb,
+                      alt: "",
+                    })
+                  : React.createElement(
+                      "span",
+                      {
+                        className: "res-tile",
+                        style: {
+                          background: mix(
+                            (
+                              MIX_MOODS.find((R) => R.id === g.mood) ||
+                              MIX_MOODS[0]
+                            ).color,
+                            55,
+                          ),
+                        },
+                      },
+                      React.createElement(Icon, { n: "music", s: 18 }),
+                    ),
                 React.createElement(
                   "div",
-                  { key: g.id, className: "song" },
-                  g.thumb
-                    ? React.createElement("img", {
-                        className: "res-tile",
-                        src: g.thumb,
-                        alt: "",
-                      })
-                    : React.createElement(
-                        "span",
-                        {
-                          className: "res-tile",
-                          style: {
-                            background: mix(
-                              (
-                                MIX_MOODS.find((R) => R.id === g.mood) ||
-                                MIX_MOODS[0]
-                              ).color,
-                              55,
-                            ),
-                          },
-                        },
-                        React.createElement(Icon, { n: "music", s: 18 }),
-                      ),
-                  React.createElement(
-                    "div",
-                    { className: "grow" },
-                    React.createElement("b", null, g.name),
-                    React.createElement("small", null, g.mood),
-                  ),
-                  U &&
-                    React.createElement(
-                      "button",
-                      {
-                        className: "icon-btn",
-                        "aria-label": `Play ${g.name}`,
-                        onClick: () =>
-                          Player.playContext(`spotify:playlist:${g.id}`).catch(
-                            (R) => u(R.message),
-                          ),
-                      },
-                      React.createElement(Icon, { n: "play", s: 15 }),
-                    ),
-                  g.url &&
-                    React.createElement(
-                      "a",
-                      {
-                        className: "sp",
-                        href: g.url,
-                        target: "_blank",
-                        rel: "noopener noreferrer",
-                      },
-                      "Open",
-                    ),
+                  { className: "grow" },
+                  React.createElement("b", null, g.name),
+                  React.createElement("small", null, g.mood),
                 ),
+                U &&
+                  React.createElement(
+                    "button",
+                    {
+                      className: "icon-btn",
+                      "aria-label": `Play ${g.name}`,
+                      onClick: () =>
+                        Player.playContext(`spotify:playlist:${g.id}`).catch(
+                          (R) => u(R.message),
+                        ),
+                    },
+                    React.createElement(Icon, { n: "play", s: 15 }),
+                  ),
+                g.url &&
+                  React.createElement(
+                    "a",
+                    {
+                      className: "sp",
+                      href: g.url,
+                      target: "_blank",
+                      rel: "noopener noreferrer",
+                    },
+                    "Open",
+                  ),
               ),
+            ),
           ),
       ),
       React.createElement(
@@ -11094,28 +11101,26 @@ function NewsPage() {
             "section",
             { key: p, className: "card news-sec" },
             React.createElement("h2", null, i.title),
-            i.items
-              .slice(0, 5)
-              .map((h, c) =>
+            i.items.slice(0, 5).map((h, c) =>
+              React.createElement(
+                "a",
+                {
+                  key: c,
+                  className: `story ${p === 0 && c === 0 ? "lead" : ""}`,
+                  href: h.url,
+                  target: "_blank",
+                  rel: "noopener noreferrer",
+                },
+                React.createElement("b", null, h.headline),
+                h.summary && React.createElement("p", null, h.summary),
                 React.createElement(
-                  "a",
-                  {
-                    key: c,
-                    className: `story ${p === 0 && c === 0 ? "lead" : ""}`,
-                    href: h.url,
-                    target: "_blank",
-                    rel: "noopener noreferrer",
-                  },
-                  React.createElement("b", null, h.headline),
-                  h.summary && React.createElement("p", null, h.summary),
-                  React.createElement(
-                    "small",
-                    null,
-                    React.createElement(Icon, { n: "external", s: 12 }),
-                    h.source || "Read",
-                  ),
+                  "small",
+                  null,
+                  React.createElement(Icon, { n: "external", s: 12 }),
+                  h.source || "Read",
                 ),
               ),
+            ),
           ),
         ),
       ),
@@ -11843,7 +11848,9 @@ function SubjectsEditor() {
                 label: "This is a lab",
                 onChange: () => p(c.id, { lab: !c.lab }),
               }),
-              c.lab ? "Yes, graded as one lab mark" : "No, it has T1/T2/T3/TA",
+              c.lab
+                ? "Practical — uses the practical marking scheme"
+                : "Theory — uses the theory marking scheme",
             ),
           ),
           React.createElement(
@@ -12629,43 +12636,16 @@ function gradeFor(e, t) {
   for (const s of t) if (e >= s[0]) return s;
   return t[t.length - 1];
 }
-function subjectCalc(e, t) {
-  const s = t.marks[e] || {};
-  let o = 0,
-    a = 0,
-    i = 0;
-  const p = courseById(e);
-  if (p && p.lab) {
-    const l = s.final ? t.bands.find((b) => b[1] === s.final) : null,
-      r =
-        s.pct === "" || s.pct == null || isNaN(+s.pct)
-          ? null
-          : Math.min(100, +s.pct);
-    return {
-      got: r || 0,
-      max: r != null ? 100 : 0,
-      remMax: r != null ? 0 : 100,
-      pct: r,
-      proj: l || (r != null ? gradeFor(r, t.bands) : null),
-      isFinal: !!l,
-      lab: !0,
-    };
-  }
-  t.comps.forEach(([l, r]) => {
-    const b = s[l];
-    b === "" || b == null || isNaN(+b)
-      ? (i += +r)
-      : ((o += Math.min(+b, +r)), (a += +r));
-  });
-  const h = a ? (o / a) * 100 : null,
-    c = s.final ? t.bands.find((l) => l[1] === s.final) : null;
+function subjectCalc(id, grades) {
+  const course = courseById(id) || { id };
+  const result = calculateAssessments(course, grades);
+  const final = (grades.marks[id] || {}).final;
+  const bands = [...grades.bands].sort((a, b) => b[0] - a[0]);
+  const fixed = final ? bands.find((b) => b[1] === final) : null;
   return {
-    got: o,
-    max: a,
-    remMax: i,
-    pct: h,
-    proj: c || (h != null ? gradeFor(h, t.bands) : null),
-    isFinal: !!c,
+    ...result,
+    proj: fixed || (result.pct != null ? gradeFor(result.pct, bands) : null),
+    isFinal: !!fixed,
   };
 }
 function semesterGPA(e) {
@@ -12722,13 +12702,13 @@ function GradesPage() {
             }
           : { t: "Add lab marks when you get them", cls: "" };
       if (!n.remMax) return { t: "All marks in", cls: "ok" };
-      const k = (w[0] / 100) * b - n.got;
+      const k = (w[0] / 100) * n.total - n.got;
       return k <= 0
         ? { t: `${d} is secured`, cls: "ok" }
         : k > n.remMax
           ? { t: `${d} is out of reach now`, cls: "warn" }
           : {
-              t: `${Math.ceil(k)} of ${n.remMax} left for ${d} (${Math.round((k / n.remMax) * 100)}%)`,
+              t: `${+k.toFixed(2)} of ${+n.remMax.toFixed(2)} weighted marks left for ${d} (${Math.round((k / n.remMax) * 100)}%)`,
               cls: k / n.remMax > 0.8 ? "warn" : "",
             };
     };
@@ -12753,7 +12733,7 @@ function GradesPage() {
         SmallBtn,
         { onClick: () => p(!i) },
         React.createElement(Icon, { n: "sliders", s: 15 }),
-        i ? "Hide marking scheme" : "Marking scheme",
+        i ? "Hide exam settings" : "Edit terms & marking schemes",
       ),
     ),
     React.createElement(
@@ -12832,67 +12812,7 @@ function GradesPage() {
       React.createElement(
         "section",
         { className: "card list-gap" },
-        React.createElement("h2", null, "Marking scheme"),
-        React.createElement(
-          "p",
-          { className: "card-note" },
-          "These are placeholders, so match them to your college's rules. Components should add up to 100 (now ",
-          b,
-          ").",
-        ),
-        React.createElement(
-          "div",
-          { style: { display: "flex", gap: 10, flexWrap: "wrap" } },
-          a.comps.map(([m, n], d) =>
-            React.createElement(
-              "span",
-              {
-                key: d,
-                className: "row-edit",
-                style: { gridTemplateColumns: "90px 80px auto" },
-              },
-              React.createElement("input", {
-                className: "input",
-                value: m,
-                "aria-label": "Component name",
-                onChange: (w) =>
-                  h({
-                    comps: a.comps.map((k, C) =>
-                      C === d ? [w.target.value, k[1]] : k,
-                    ),
-                  }),
-              }),
-              React.createElement("input", {
-                className: "input num",
-                type: "number",
-                value: n,
-                "aria-label": "Marks",
-                onChange: (w) =>
-                  h({
-                    comps: a.comps.map((k, C) =>
-                      C === d ? [k[0], +w.target.value || 0] : k,
-                    ),
-                  }),
-              }),
-              React.createElement(
-                "button",
-                {
-                  className: "icon-btn",
-                  "aria-label": "Remove component",
-                  onClick: () =>
-                    h({ comps: a.comps.filter((w, k) => k !== d) }),
-                },
-                React.createElement(Icon, { n: "x", s: 14 }),
-              ),
-            ),
-          ),
-          React.createElement(
-            SmallBtn,
-            { onClick: () => h({ comps: [...a.comps, ["Lab", 10]] }) },
-            React.createElement(Icon, { n: "plus", s: 14 }),
-            "Component",
-          ),
-        ),
+        React.createElement(AssessmentSchemeEditor, null),
         React.createElement("h3", null, "Grade bands"),
         React.createElement(
           "div",
@@ -12963,7 +12883,7 @@ function GradesPage() {
             { className: "table-wrap" },
             React.createElement(
               "table",
-              null,
+              { className: "assessment-table" },
               React.createElement(
                 "thead",
                 null,
@@ -12972,20 +12892,7 @@ function GradesPage() {
                   null,
                   React.createElement("th", null, "Subject"),
                   React.createElement("th", null, "Credits"),
-                  a.comps.map(([m, n]) =>
-                    React.createElement(
-                      "th",
-                      { key: m },
-                      m,
-                      " ",
-                      React.createElement(
-                        "span",
-                        { style: { opacity: 0.6 } },
-                        "/",
-                        n,
-                      ),
-                    ),
-                  ),
+                  React.createElement("th", null, "Assessments & makeup exams"),
                   React.createElement("th", null, "So far"),
                   React.createElement("th", null, "Grade"),
                   React.createElement("th", null, "Aim for"),
@@ -13016,66 +12923,11 @@ function GradesPage() {
                       { className: "num" },
                       m.credits || "\u2014",
                     ),
-                    m.lab
-                      ? React.createElement(
-                          "td",
-                          { colSpan: a.comps.length },
-                          React.createElement(
-                            "span",
-                            { className: "muted", style: { fontSize: 13 } },
-                            "Lab marks ",
-                          ),
-                          React.createElement("input", {
-                            className: "input mini num",
-                            type: "number",
-                            min: "0",
-                            max: "100",
-                            value:
-                              (w = (a.marks[m.id] || {}).pct) != null ? w : "",
-                            "aria-label": `${m.short} lab marks out of 100`,
-                            onChange: (k) =>
-                              c(
-                                m.id,
-                                "pct",
-                                k.target.value === ""
-                                  ? ""
-                                  : Math.max(0, Math.min(100, +k.target.value)),
-                              ),
-                          }),
-                          React.createElement(
-                            "span",
-                            { className: "muted", style: { fontSize: 13 } },
-                            " / 100",
-                          ),
-                        )
-                      : a.comps.map(([k, C]) => {
-                          var j;
-                          return React.createElement(
-                            "td",
-                            { key: k },
-                            React.createElement("input", {
-                              className: "input mini num",
-                              type: "number",
-                              min: "0",
-                              max: C,
-                              step: "0.5",
-                              value:
-                                (j = (a.marks[m.id] || {})[k]) != null ? j : "",
-                              "aria-label": `${m.short} ${k}`,
-                              onChange: (_) =>
-                                c(
-                                  m.id,
-                                  k,
-                                  _.target.value === ""
-                                    ? ""
-                                    : Math.max(
-                                        0,
-                                        Math.min(+C, +_.target.value),
-                                      ),
-                                ),
-                            }),
-                          );
-                        }),
+                    React.createElement(
+                      "td",
+                      null,
+                      React.createElement(SubjectAssessments, { course: m }),
+                    ),
                     React.createElement(
                       "td",
                       { className: "num" },
@@ -13084,7 +12936,7 @@ function GradesPage() {
                           ? n.pct + "%"
                           : "\u2014"
                         : n.max
-                          ? `${n.got}/${n.max}`
+                          ? `${+n.got.toFixed(2)}/${+n.max.toFixed(2)}`
                           : "\u2014",
                     ),
                     React.createElement(
@@ -14258,72 +14110,70 @@ function CodePage() {
           { className: "empty" },
           "Your first problem goes here. Start with an easy one tomorrow \u2661",
         ),
-      o.problems
-        .slice(0, 15)
-        .map((n) =>
+      o.problems.slice(0, 15).map((n) =>
+        React.createElement(
+          "div",
+          { key: n.id, className: "txn" },
+          React.createElement(
+            "span",
+            {
+              className: "ic",
+              style: { background: "var(--sage-2)", color: "var(--sage-3)" },
+            },
+            React.createElement(Icon, { n: "code" }),
+          ),
           React.createElement(
             "div",
-            { key: n.id, className: "txn" },
+            { className: "grow" },
             React.createElement(
-              "span",
-              {
-                className: "ic",
-                style: { background: "var(--sage-2)", color: "var(--sage-3)" },
-              },
-              React.createElement(Icon, { n: "code" }),
-            ),
-            React.createElement(
-              "div",
-              { className: "grow" },
-              React.createElement(
-                "b",
-                null,
-                n.link
-                  ? React.createElement(
-                      "a",
-                      {
-                        href: n.link,
-                        target: "_blank",
-                        rel: "noopener noreferrer",
-                        style: { color: "inherit" },
-                      },
-                      n.title,
-                    )
-                  : n.title,
-              ),
-              React.createElement(
-                "span",
-                { className: "muted", style: { fontSize: 13 } },
-                n.platform,
-                " \xB7 ",
-                (ROADMAP.find((d) => d.id === n.topic) || {}).name,
-                " \xB7 ",
-                fmtDay(n.date),
-                n.note ? ` \xB7 ${n.note}` : "",
-              ),
+              "b",
+              null,
+              n.link
+                ? React.createElement(
+                    "a",
+                    {
+                      href: n.link,
+                      target: "_blank",
+                      rel: "noopener noreferrer",
+                      style: { color: "inherit" },
+                    },
+                    n.title,
+                  )
+                : n.title,
             ),
             React.createElement(
               "span",
-              {
-                className: `pill ${n.diff === "Hard" ? "warn" : n.diff === "Easy" ? "ok" : ""}`,
-              },
-              n.diff,
-            ),
-            React.createElement(
-              "button",
-              {
-                className: "icon-btn",
-                "aria-label": `Delete ${n.title}`,
-                onClick: () =>
-                  t({
-                    ...o,
-                    problems: o.problems.filter((d) => d.id !== n.id),
-                  }),
-              },
-              React.createElement(Icon, { n: "trash", s: 15 }),
+              { className: "muted", style: { fontSize: 13 } },
+              n.platform,
+              " \xB7 ",
+              (ROADMAP.find((d) => d.id === n.topic) || {}).name,
+              " \xB7 ",
+              fmtDay(n.date),
+              n.note ? ` \xB7 ${n.note}` : "",
             ),
           ),
+          React.createElement(
+            "span",
+            {
+              className: `pill ${n.diff === "Hard" ? "warn" : n.diff === "Easy" ? "ok" : ""}`,
+            },
+            n.diff,
+          ),
+          React.createElement(
+            "button",
+            {
+              className: "icon-btn",
+              "aria-label": `Delete ${n.title}`,
+              onClick: () =>
+                t({
+                  ...o,
+                  problems: o.problems.filter((d) => d.id !== n.id),
+                }),
+            },
+            React.createElement(Icon, { n: "trash", s: 15 }),
+          ),
         ),
+      ),
     ),
   );
 }
@@ -17852,14 +17702,12 @@ function Welcome({ onDone: e }) {
             className: "w-progress",
             "aria-label": `Step ${a} of ${u.length - 2}`,
           },
-          u
-            .slice(1, -1)
-            .map((M, f) =>
-              React.createElement("i", {
-                key: M,
-                className: f + 1 < a ? "done" : f + 1 === a ? "on" : "",
-              }),
-            ),
+          u.slice(1, -1).map((M, f) =>
+            React.createElement("i", {
+              key: M,
+              className: f + 1 < a ? "done" : f + 1 === a ? "on" : "",
+            }),
+          ),
         ),
       React.createElement(
         "div",

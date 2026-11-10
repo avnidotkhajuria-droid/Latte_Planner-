@@ -1,0 +1,18 @@
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
+const ctx=vm.createContext({});vm.runInContext(fs.readFileSync('src/planner-model.js','utf8'),ctx);
+const grade={comps:[['T1',15],['T2',25],['T3',35],['TA',25]],marks:{theory:{T1:12,T2:20},lab:{pct:75}}};
+let result=ctx.calculateAssessments({id:'theory'},grade);assert.equal(result.got,32);assert.equal(result.pct,80);assert.equal(result.remMax,60);
+assert.equal(ctx.calculateAssessments({id:'lab',lab:true},grade).pct,75);
+assert.equal(ctx.effectiveMark(90,{enabled:true,score:40},100),40,'makeup must replace a higher original');
+assert.equal(ctx.effectiveMark(90,{enabled:true,score:0},100),0,'zero is a valid makeup mark');
+assert.equal(ctx.effectiveMark(90,{enabled:true,score:''},100),90,'pending makeup preserves original');
+assert.equal(ctx.effectiveMark(90,{enabled:false,score:40},100),90);
+const labRows=ctx.practicalTermScheme(3);assert.equal(labRows.length,3);assert.equal(ctx.schemeErrors(labRows),'');
+const g={...grade,labScheme:labRows,marks:{lab:{'practical-term-1':80,'practical-term-2':60,'practical-term-3':100,makeups:{'practical-term-2':{enabled:true,score:40}}}}};
+result=ctx.calculateAssessments({id:'lab',lab:true},g);assert.ok(Math.abs(result.pct-73.336)<0.001);assert.equal(result.remMax,0);
+const renamed=labRows.map(r=>({...r,label:'Renamed '+r.label}));assert.equal(ctx.calculateAssessments({id:'lab',lab:true},{...g,labScheme:renamed}).pct,result.pct);
+assert.ok(ctx.schemeErrors([{id:'a',label:'A',max:0,weight:100}]));assert.ok(ctx.schemeErrors([{id:'a',label:'A',max:100,weight:60}]));
+const profile={schedulePeriods:[{start:'2026-12-01',end:'2026-12-10',plan:'holiday'}]};
+assert.equal(ctx.planForDate(profile,{},'2026-12-01'),'holiday');assert.equal(ctx.planForDate(profile,{},'2026-12-10'),'holiday');assert.equal(ctx.planForDate(profile,{},'2026-12-11'),'normal');assert.equal(ctx.planForDate(profile,{'2026-12-04':'exam'},'2026-12-04'),'exam');
+assert.equal(ctx.plannerPlans({customPlans:[{id:'travel',pauseClasses:true}]},[{id:'normal'},{id:'holiday'}]).find(p=>p.id==='holiday').pauseClasses,true);
+console.log('Passed: legacy marks, practical terms, weighted grades, makeup replacement, scheme validation, holiday boundaries and overrides.');
